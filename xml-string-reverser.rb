@@ -16,11 +16,34 @@ def parse_file(file_path)
 
   # Search all leaf nodes since that's where all the translation strings are
   doc.xpath('//*[not(*)]').each do |node|
-    node.content = node.content.reverse if node.content.match(/(\p{Arabic})|(\p{Hebrew})/)
+    node = reverse_node(node)
   end
 
   File.write(file_path, doc.to_xml)
   puts "[INFO] #{file_path} parsed and strings reversed!"
+end
+
+def reverse_node(node)
+  if node.content.match(/(\p{Arabic})|(\p{Hebrew})/) then
+    words = node.content.split
+    words.each do |word|
+      # If there are any placeholders (e.g. {0}, {PAWN_FIRST_NAME}) in the word,
+      # we wanna preserve that as-is. So, we'll build a list of placeholders
+      # and their index in the word ( e.g. [["{0}", 2], ["{PAWN}", 5]])...
+      placeholders = []
+      word.scan(/{.*?}/) { |match| placeholders << [match, $~.offset(0)[0]] }
+      placeholders.each { |placeholder| word.sub!(placeholder[0], '') } if placeholders
+
+      word.reverse! if word.match(/(\p{Arabic})|(\p{Hebrew})/)
+
+      # ...then use it to put the placeholders back in place after we reverse the word
+      placeholders.each { |placeholder| word.insert(placeholder[1], placeholder[0]) } if placeholders
+    end
+    words.reverse!
+
+    node.content = words.join(' ')
+    return node
+  end
 end
 ###
 
