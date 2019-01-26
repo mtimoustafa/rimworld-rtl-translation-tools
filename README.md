@@ -7,4 +7,4 @@ This is a special project for [Ludeon/Rimworld-ar](https://github.com/Ludeon/Rim
 ## Installation
 1. Install [Ruby](https://www.ruby-lang.org/en/downloads/).
 2. Install [Nokogiri](https://nokogiri.org/#installation).
-3. Run the script! Accepts a file or directory path as an argument.
+3. Run the script using `<path_to_script>/xml-string-reverser.rb`! Accepts a file or directory path as an argument.
