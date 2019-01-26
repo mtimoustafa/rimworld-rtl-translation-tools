@@ -1,6 +1,5 @@
 #! /usr/bin/env ruby
 require 'nokogiri'
-require 'open-uri'
 
 ### Methods
 def parse_directory(directory_path)
