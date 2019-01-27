@@ -10,8 +10,11 @@
       <creditee>رتسيفليس نانيت</creditee>
       <creditee>رتسيفليس {0} نانيت</creditee>
       <creditee>رتسيفليس نانيت{0}</creditee>
+      <creditee>رتسيفليس {0}نانيت</creditee>
       <creditee>رتسيفليس {asdf!@#} نانيت</creditee>
       <creditee>رتسيفليس نانيت{asdf!@#}</creditee>
+      <creditee>رتسيفليس {asdf!@#}نانيت</creditee>
+      <creditee>انم ءاهفسلا لعف امب انذخاؤت ال انبر تاطفاحملا تربكو بشعلا رضوضخا اذءأ</creditee>
     </li>
   </credits>
 </LanguageInfo>
