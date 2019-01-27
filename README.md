@@ -26,3 +26,6 @@ This script converts all Arabic letters in a file or a directory of files and co
 Combined with `reverse_rtl_text.rb`, this causes Arabic to display correctly in-game.
 
 *`reverse_rtl_text.rb` must be run on the translation files _first_ before running `contextualize_arabic_letters.rb`*
+
+## build_arabic.sh
+Makes a new copy of an Arabic translation, then runs the required scripts to make a corrected translation directory for use in-game.
