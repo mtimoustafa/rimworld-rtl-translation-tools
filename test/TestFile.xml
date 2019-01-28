@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageInfo>
-  <friendlyNameNative>ةيبرعلا</friendlyNameNative>
+  <friendlyNameNative>العربية</friendlyNameNative>
   <friendlyNameEnglish>Arabic</friendlyNameEnglish>
   <canBeTiny>true</canBeTiny>
   <languageWorkerClass>LanguageWorker_English</languageWorkerClass>
   <credits>
     <li Class="CreditRecord_Role">
-      <roleKey>ابحرم Credit_Writer</roleKey>
-      <creditee>رتسيفليس نانيت</creditee>
-      <creditee>رتسيفليس {0} نانيت</creditee>
-      <creditee>رتسيفليس نانيت{0}</creditee>
-      <creditee>رتسيفليس {0}نانيت</creditee>
-      <creditee>رتسيفليس {asdf!@#} نانيت</creditee>
-      <creditee>رتسيفليس نانيت{asdf!@#}</creditee>
-      <creditee>رتسيفليس {asdf!@#}نانيت</creditee>
-      <creditee>انم ءاهفسلا لعف امب انذخاؤت ال انبر تاطفاحملا تربكو بشعلا رضوضخا اذءأ</creditee>
+      <roleKey>Credit_Writer مرحبا</roleKey>
+      <creditee>تينان سيلفيستر</creditee>
+      <creditee>تينان {0} سيلفيستر</creditee>
+      <creditee>تينان{0} سيلفيستر</creditee>
+      <creditee>{0}تينان سيلفيستر</creditee>
+      <creditee>تينان {asdf!@#} سيلفيستر</creditee>
+      <creditee>تينان{asdf!@#} سيلفيستر</creditee>
+      <creditee>{asdf!@#}تينان سيلفيستر</creditee>
+      <creditee>أءذا اخضوضر العشب وكبرت المحافطات ربنا لا تؤاخذنا بما فعل السفهاء منا</creditee>
+      <creditee>لا لأ لإ لآ</creditee>
+      <creditee>الا الأ الإ الآ بلا بلأ بلإ بلآ</creditee>
+      <creditee>لاا لأا لإا لآا لاب لأب لإب لآب</creditee>
+      <creditee>}لا }لأ }لإ }لآ {لا {لأ {لإ {لآ</creditee>
+      <creditee>لا{ لأ{ لإ{ لآ{ لا} لأ} لإ} لآ}</creditee>
     </li>
   </credits>
 </LanguageInfo>

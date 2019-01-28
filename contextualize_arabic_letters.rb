@@ -76,7 +76,7 @@ end
 
 def is_non_connecting_letter?(letter)
   # Letters that do not connect to ones after them
-  return 'اأإﺁدذرزوؤةى'.include?(letter)
+  return 'اأإآدذرزوؤةى'.include?(letter)
 end
 
 def is_isolated_letter?(letter)
@@ -88,7 +88,7 @@ def is_lam?(letter)
   return letter == 'ل'
 end
 def is_alef?(letter)
-  return 'اأإﺁ'.include?(letter)
+  return 'اأإآ'.include?(letter)
 end
 
 def create_lam_alef_combo(prev_letter, next_letter)
@@ -99,7 +99,9 @@ def create_lam_alef_combo(prev_letter, next_letter)
     'ا' => 0xFEFB
   }
   combo_code = letter_map[next_letter]
-  combo_code += 0x1 unless prev_letter.nil?
+  unless prev_letter.nil? || is_non_connecting_letter?(prev_letter) || is_isolated_letter?(prev_letter) || prev_letter.match(/[{}]/)
+    combo_code += 0x1
+  end
   return [combo_code].pack('U')
 end
 
