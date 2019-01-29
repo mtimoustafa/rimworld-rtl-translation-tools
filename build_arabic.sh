@@ -1,11 +1,38 @@
 #!/bin/sh
-echo 'Copying over Arabic translation...'
-rm -rf /d/Rimworld-ar/build
-mkdir /d/Rimworld-ar/build
-cp -r /d/Rimworld-ar/Arabic /d/Rimworld-ar/build/Arabic
-echo 'done!'
+if [ $# -eq 0 ] || [ $# -gt 2 ]; then
+  printf "Usage: build_arabic.sh <translation_directory_path> [<destination_path>]\n"
+  exit 1
+fi
 
-echo 'Running reverse_rtl_text.rb...'
-rimworld-rtl-translation-tools/reverse_rtl_text.rb /d/Rimworld-ar/build/Arabic
-echo 'Running contextualize_arabic_letters.rb...'
-rimworld-rtl-translation-tools/contextualize_arabic_letters.rb /d/Rimworld-ar/build/Arabic
+trans_dir=$1
+dest_dir=$2
+
+if ! [ -d $trans_dir ]; then
+  printf "Invalid translation directory path.\n"
+  exit 1
+fi
+if [ $# -eq 1 ]; then
+  printf "No destination path provided; creating corrected translation directory in current directory.\n"
+  dest_dir="./Arabic"
+fi
+
+if [ -d $dest_dir ]; then
+  printf "Destination directory $dest_dir already exists. Overwrite it?(Y/N) "
+  read in
+  if [ "$in" != "Y" ] && [ "$in" != "y" ] && [ "$in" != "YES" ] && [ "$in" != "yes" ]; then
+    exit 1
+  fi
+fi
+
+printf "Copying over Arabic translation..."
+if [ -d $dest_dir ]; then rm -rf $dest_dir; fi
+cp -r $trans_dir $dest_dir
+printf "done!\n"
+
+printf "\nRunning reverse_rtl_text.rb...\n"
+./reverse_rtl_text.rb $dest_dir || { printf "\n"; exit $ERRCODE; }
+printf "done!\n"
+
+printf "\nRunning contextualize_arabic_letters.rb...\n"
+./contextualize_arabic_letters.rb $dest_dir || { printf "\n"; exit $ERRCODE; }
+printf "done!\n"
