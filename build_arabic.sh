@@ -36,3 +36,6 @@ printf "done!\n"
 printf "\nRunning contextualize_arabic_letters.rb...\n"
 ./contextualize_arabic_letters.rb $dest_dir || { printf "\n"; exit $ERRCODE; }
 printf "done!\n"
+
+printf "Correction complete. Press any key to continue..."
+read -n1
