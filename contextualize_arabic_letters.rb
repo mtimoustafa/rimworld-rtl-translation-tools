@@ -188,7 +188,7 @@ end
 ### Run script
 if ARGV.length != 1 then
   puts "Usage:"\
-       "xml-string-reverser [file-path|directory-path]"
+       "contextualize_arabic_letters.rb [file-path|directory-path]"
   exit
 end
 
