@@ -12,6 +12,11 @@ Current RTL translation projects:
 2. Install [Nokogiri](https://nokogiri.org/#installation).
 3. Run the script using `<path_to_script>/xml-string-reverser.rb`! Accepts a file or directory path as an argument.
 
+## Contributing
+Feel free to fork and submit a pull request of your changes and I'll happily take a look!
+
+_This was written in a rush and the code is quite smelly in some places I'm so sorry_
+
 ## reverse_rtl_text.rb
 Takes an XML file (or a directory of files) and reverses all Arabic and Hebrew strings in the leaf nodes.
 
