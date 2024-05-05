@@ -1,4 +1,7 @@
 #!/bin/sh
+
+set -e
+
 if [ $# -eq 0 ] || [ $# -gt 2 ]; then
   printf "Usage: build_arabic.sh <translation_directory_path> [<destination_path>]\n"
   exit 1
@@ -20,7 +23,7 @@ if [ -d $dest_dir ]; then
   printf "Destination directory $dest_dir already exists. Overwrite it?(Y/N) "
   read in
   if [ "$in" != "Y" ] && [ "$in" != "y" ] && [ "$in" != "YES" ] && [ "$in" != "yes" ]; then
-    exit 1
+    exit 0
   fi
 fi
 
@@ -30,11 +33,11 @@ cp -r $trans_dir $dest_dir
 printf "done!\n"
 
 printf "\nRunning reverse_rtl_text.rb...\n"
-ruby ./reverse_rtl_text.rb $dest_dir || { printf "\n"; exit $ERRCODE; }
+bundle exec ruby ./reverse_rtl_text.rb $dest_dir
 printf "done!\n"
 
 printf "\nRunning contextualize_arabic_letters.rb...\n"
-ruby ./contextualize_arabic_letters.rb $dest_dir || { printf "\n"; exit $ERRCODE; }
+bundle exec ruby ./contextualize_arabic_letters.rb $dest_dir
 printf "done!\n"
 
 printf "Correction complete."
