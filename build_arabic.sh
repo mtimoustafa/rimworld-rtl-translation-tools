@@ -30,12 +30,11 @@ cp -r $trans_dir $dest_dir
 printf "done!\n"
 
 printf "\nRunning reverse_rtl_text.rb...\n"
-./reverse_rtl_text.rb $dest_dir || { printf "\n"; exit $ERRCODE; }
+ruby ./reverse_rtl_text.rb $dest_dir || { printf "\n"; exit $ERRCODE; }
 printf "done!\n"
 
 printf "\nRunning contextualize_arabic_letters.rb...\n"
-./contextualize_arabic_letters.rb $dest_dir || { printf "\n"; exit $ERRCODE; }
+ruby ./contextualize_arabic_letters.rb $dest_dir || { printf "\n"; exit $ERRCODE; }
 printf "done!\n"
 
-printf "Correction complete. Press any key to continue..."
-read -n1
+printf "Correction complete."
